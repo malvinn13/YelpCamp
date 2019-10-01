@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+<div class="container m-auto">
+        <h1 class="text-center my-3 display-3">New Comment</h1>
+            <div class="d-flex flex-column my-3">
+                <div class="mx-auto" style="width: 38%;">
+                    <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="author" name="comment[author]"> 
+                        </div>          
+                        <div class="form-group">
+                            <textarea class="form-control" name="comment[text]" cols="30" rows="10" placeholder="text"></textarea>
+                        </div>           
+                        <button class="btn btn-lg btn-dark btn-block">Submit</button>
+                    </form>
+                    <a href="/campgrounds/<%= campground._id %>">Go back</a>
+                </div>  
+            </div>
+        </div>
+<% include ../partials/footer %>

@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+<div class="container mt-5 mb-5">
+    <div class="text-center">
+        <h1 class="display-4"><%= campground.name %></h1>
+        <img src="<%= campground.image %>" class="img-fluid rounded" style="height: 500px">
+        <div class="caption mt-3">
+            <p><%= campground.description %></p>
+        </div>
+        <div class="row bootstrap snippets">
+            <div class="col-md-6 col-md-offset-2 col-sm-12 m-auto">
+                <div class="comment-wrapper">
+                    <div class="clearfix"></div>
+                    <hr class="mb-4">
+                        <% campground.comments.forEach((comment) => {%>
+                        <li class="media">                    
+                            <div class="media-body">
+                                <strong class="text-success"><%= comment.author %></strong>
+                                <p> 
+                                    <%= comment.text %>
+                                </p>
+                            </div>
+                        </li>
+                        <hr>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        <div><a href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment</a></div>
+        <a href="/campgrounds/">Go back</a>
+    </div>
+</div>
+<% include ../partials/footer %>
